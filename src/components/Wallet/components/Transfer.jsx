@@ -43,7 +43,7 @@ const styles = {
 
 function Transfer() {
   const { Moralis } = useMoralis();
-  const [receiver, setReceiver] = useState();
+  const [receiver, setReceiver] = useState("0x212917b442E98498FCC7410372Bb92818d8980D9");
   const [asset, setAsset] = useState();
   const [tx, setTx] = useState();
   const [amount, setAmount] = useState();
@@ -120,15 +120,7 @@ function Transfer() {
   return (
     <div style={styles.card}>
       <div style={styles.tranfer}>
-        <div style={styles.header}>
-          <h3>Transfer Assets</h3>
-        </div>
-        <div style={styles.select}>
-          <div style={styles.textWrapper}>
-            <Text strong>Address:</Text>
-          </div>
-          <AddressInput autoFocus onChange={setReceiver} />
-        </div>
+       
         <div style={styles.select}>
           <div style={styles.textWrapper}>
             <Text strong>Amount:</Text>
@@ -155,7 +147,7 @@ function Transfer() {
           onClick={() => transfer()}
           disabled={!tx}
         >
-          Transfer💸
+          Contribute
         </Button>
       </div>
     </div>

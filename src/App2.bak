@@ -26,13 +26,7 @@ import {
   Box,
   HStack,
   Container,
-  Vstack,
-  SimpleGrid,
-  useColorModeValue,
-  Heading,
-  StackDivider,
-  List,
-  ListItem,
+  Vstack
 } from '@chakra-ui/react';
 import Navbar from "components/Navbar";
 
@@ -47,77 +41,79 @@ const App = ({ isServerInfo }) => {
   }, [isAuthenticated, isWeb3Enabled]);
   const handleItemClick = (e, { name }) => setActiveItem(name)
   return (
-     <Flex 
-     w={'full'}
+    <Container maxW={'5xl'}>
+      {/* <Flex
+      w={'full'}
       h={'100vh'}
-       backgroundImage={
+      backgroundImage={
         'images/background.jpg'
         // https://images.unsplash.com/photo-1639759022772-55dcc7a9f745?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80
         // 'url(https://images.unsplash.com/photo-1639759022772-55dcc7a9f745?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80)'
       }
       backgroundSize={'cover'}
       backgroundPosition={'center center'}
-      px={'5%'}
-      pt={'5%'}
-
-      justifyContent={'center'}
-      >
-      <Flex
-        direction={'column'}
+      flexDirection={["column"]}
+      > */}
+        {/* <Navbar /> */}
+      <VStack
+        w={'full'}
+        h={'100vh'}
+        justify={'center'}
         
-        // spacing={{ base: 8, md: 10 }}
-        // py={{ base: 18, md: 24 }}
-        bg={'white'}
-        borderRadius={{base: 5, md: 10, lg: 20, xl: 25}}
-        maxW={'1350px'}
-        maxH={['750px','900px','1000px','600px']}
-        
+        px={useBreakpointValue({ base: 4, md: 8 })}
+        // bgGradient={'linear(to-r, blackAlpha.800, transparent)'}
         >
-         {/* <Flex justifyContent={'flex-end'} alignItems={'center'} >
+        <VStack  align={'flex-start'} spacing={6}  bgColor={['white']} padding={10} borderRadius={50}>
+           <HStack justifyContent={'flex-end'} w={'full'}>
 
             <NativeBalance />
             <Account />
-        </Flex> */}
-
-        <Navbar />
-          
-        <Flex bg={'white'}>
-             <Stack direction={['column','column','column','row']}>
-               
-              <Image src='images/illustration.jpg' p={'5%'} pb={[0,0,'5%']}/>
-              <Stack direction={'column'} alignItems={'center'} justifyContent={'center'} p={10} pt={[0,0,10]} >
-                <Heading as={'h1'} textAlign={'center'} style={{fontFamily:'Roboto'}} textColor={'#1c9cff'}>
-                  Fund the Web3 future.
-                </Heading>
+           </HStack>
+           <HStack>
+             <Stack direction={'row'}>
+              <Image src='images/illustration.jpg' p={10}/>
+              <Stack direction={'column'} alignItems={'center'} justifyContent={'flex-end'} p={10} >
               <Text
+                color={'blue'}
+                fontWeight={700}
                 lineHeight={1.2}
-                textAlign={'center'}
-                fontWeight={500}
-                >
-                Join the moment of Web3 by contributing towards development of the decentralized ecosystem.
+                fontSize={useBreakpointValue({ base: '3xl', md: '4xl' })}>
+                Donate Funds
+                Help me build the future of Web by contributing towards development cost
               </Text>
+                      {/* <Stack direction={'row'}>
+                        <Button
+                          bg={'blue.400'}
+                          rounded={'full'}
+                          color={'white'}
+                          _hover={{ bg: 'blue.500' }}>
+                          Show me more
+                        </Button>
+                        <Button
+                          bg={'whiteAlpha.300'}
+                          rounded={'full'}
+                          color={'red'}
+                          _hover={{ bg: 'whiteAlpha.500' }}>
+                          Show me more
+                        </Button>
+                      </Stack> */}
                       <Wallet />
                 </Stack>
               </Stack>
-            </Flex>
-              <Flex justifyContent={'center'} alignItems={'center'}>
+            </HStack>
             
+            <HStack justifyContent={'flex-end'} >
 
-
-
-        <Text style={{ display: "block" }} textColor={'#1c9cff'}>
-          Copyright © 2021 CrowdFund
-        </Text>
-        </Flex>
-      </Flex>
-
-     
-    </Flex>
+            <NativeBalance />
+            <Account />
+           </HStack>
+        </VStack>
+      </VStack>
+    {/* </Flex> */}
+    </Container>
   );
 };
 
 
 
 export default App;
-
-
